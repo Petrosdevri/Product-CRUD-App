@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Electron & MySQL</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            #products {
+                height: 100vh;
+                overflow-y: auto;
+                padding: 2px
+            }
+        </style>
+    </head>
+    <body>
+    <main class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 p-4 my-auto">
+                <!-- Product Form -->
+                <form id="productForm" class="card card-body gap-3">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Product's Name" class="form-control" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="price" placeholder="Product's Price" step="any" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="description" rows="3" placeholder="Product's Description" class="form-control"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Save
+                    </button>
+                </form>
+            </div>
+            <!-- Product List -->
+            <div class="col-md-6">
+                <div id="products"></div>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="./app.js"></script>
+    </body>
+</html>
