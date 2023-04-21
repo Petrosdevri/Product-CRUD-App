@@ -1,4 +1,4 @@
-const main = require('./main');
+const main = require('../main');
 const productForm = document.getElementById('productForm');
 const productName = document.getElementById('name');
 const productPrice = document.getElementById('price');
