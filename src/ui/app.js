@@ -58,21 +58,42 @@ productForm.addEventListener('submit', async (e) => {
 function renderProducts(tasks) {
   productsList.innerHTML = '';
   tasks.forEach((t) => {
-    productsList.innerHTML += `
-      <div class='card card-body my-2 animated fadeInLeft'>
-        <h4>${t.name}</h4>
-        <p>${t.description}</p>
-        <h3>${t.price}$</h3>
-        <p>
-        <button class='btn btn-danger btn-sm' onclick='deleteProduct('${t.id}')'>
-          DELETE
-        </button>
-        <button class='btn btn-secondary btn-sm' onclick='editProduct('${t.id}')'>
-          EDIT
-        </button>
-        </p>
-      </div>
-    `;
+    const card = document.createElement('div');
+    card.classList.add('card', 'card-body', 'my-2', 'animated', 'fadeInLeft', 'gap-2');
+
+    const name = document.createElement('h4');
+    name.innerText = t.name;
+
+    const description = document.createElement('p');
+    description.innerText = t.description;
+
+    const price = document.createElement('h3');
+    price.innerText = `${t.price}$`;
+
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('btn', 'btn-danger', 'btn-sm');
+    deleteButton.innerText = 'DELETE';
+    deleteButton.addEventListener('click', () => {
+      deleteProduct(t.id);
+    });
+
+    const editButton = document.createElement('button');
+    editButton.classList.add('btn', 'btn-secondary', 'btn-sm');
+    editButton.innerText = 'EDIT';
+    editButton.addEventListener('click', () => {
+      editProduct(t.id);
+    });
+
+    const p = document.createElement('p');
+    p.appendChild(deleteButton);
+    p.appendChild(editButton);
+
+    card.appendChild(name);
+    card.appendChild(description);
+    card.appendChild(price);
+    card.appendChild(p);
+
+    productsList.appendChild(card);
   });
 }
 
